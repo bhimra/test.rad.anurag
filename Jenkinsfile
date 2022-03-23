@@ -47,8 +47,8 @@ ENDSSH
                     systemctl start radrtserver.service
                     systemctl start raddc.service
                     echo "\n all the servers are running......"
-    ENDSSH
-        '''
+ENDSSH
+      '''
                 }
             }
         }

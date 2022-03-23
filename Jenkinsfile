@@ -11,7 +11,7 @@ pipeline{
                 '''
             }    
         }
-        stage {
+        stage ('Starting db, aws,cc server'){
             steps {
                 sh '''
                     ssh -T centos@192.168.60.175 << ENDSSH
@@ -23,7 +23,7 @@ ENDSSH
        '''
                 }
             }
-        stage ('start the Ct-Client'){
+        stage ('start the Ct-Client') {
             input {
                 message "Did you start the ct-client?"
             }

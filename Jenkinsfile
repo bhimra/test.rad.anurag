@@ -1,17 +1,14 @@
-pipeline{
+pipeline {
     agent any
     
     stages {
         stage ('Checkout SCM') {
             steps {
-                
-                sh '''
                   git 'https://github.com/bhimra/test.rad.anurag.git'
-                  pwd && chmod +x .
-                '''
+                  sh 'pwd && chmod +x .'
             }    
         }
-        stage ('Starting db, aws,cc server'){
+        stage ('Starting db, aws,cc server') {
             steps {
                 sh '''
                     ssh -T centos@192.168.60.175 << ENDSSH
@@ -21,8 +18,8 @@ pipeline{
                     systemctl start radccserver.service
 ENDSSH
        '''
-                }
             }
+        }
         stage ('start the Ct-Client') {
             input {
                 message "Did you start the ct-client?"
@@ -46,7 +43,7 @@ ENDSSH
                     sleep 5
                     systemctl start radrtserver.service
                     systemctl start raddc.service
-                    echo "\n all the servers are running......"
+                    echo -e '\n All the Server are Running...................................................................'
 ENDSSH
       '''
                 }

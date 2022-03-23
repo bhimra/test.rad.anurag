@@ -11,13 +11,11 @@ pipeline {
         stage ('Starting db, aws,cc server') {
             steps {
                 sh '''
-                    ssh -T centos@192.168.60.175 << ENDSSH
                     cd 
                     systemctl start oodb.service
                     systemctl start radaws.service
                     systemctl start radccserver.service
-ENDSSH
-       '''
+                   '''
             }
         }
         stage ('start the Ct-Client') {
@@ -26,7 +24,6 @@ ENDSSH
             }
             steps {
                 sh '''
-                    ssh -T centos@192.168.60.175 << ENDSSH
                     cd 
                     systemctl start radxspiservice.service
                     systemctl start radaes.service
@@ -44,8 +41,7 @@ ENDSSH
                     systemctl start radrtserver.service
                     systemctl start raddc.service
                     echo -e '\n All the Server are Running...................................................................'
-ENDSSH
-      '''
+                  '''
                 }
             }
         }

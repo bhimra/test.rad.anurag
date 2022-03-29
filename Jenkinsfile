@@ -6,21 +6,21 @@ pipeline {
             steps {
                 sh '''
                     ssh -T root@192.168.60.175 << ENDSSH
-                    systemctl start raddc.service
-                    systemctl start radrtserver.service
-                    systemctl start radrema.service
-                    systemctl start rademagent.service
-                    systemctl start rademailserver.service
-                    systemctl start radchatclient.service
-                    systemctl start radchatagent.service
-                    systemctl start radrusc.service
-                    systemctl start radchatserver.service
-                    systemctl start radcrossx.service
-                    systemctl start radaes.service
-                    systemctl start radxspiservice.service
-                    systemctl start radccserver.service
-                    systemctl start radaws.service
-                    systemctl start radaws.service
+                    systemctl stop raddc.service
+                    systemctl stop radrtserver.service
+                    systemctl stop radrema.service
+                    systemctl stop rademagent.service
+                    systemctl stop rademailserver.service
+                    systemctl stop radchatclient.service
+                    systemctl stop radchatagent.service
+                    systemctl stop radrusc.service
+                    systemctl stop radchatserver.service
+                    systemctl stop radcrossx.service
+                    systemctl stop radaes.service
+                    systemctl stop radxspiservice.service
+                    systemctl stop radccserver.service
+                    systemctl stop radaws.service
+                    systemctl stop radaws.service
                     echo -e '\n All the Server are stopped...................................................................'
 ENDSSH
       '''
